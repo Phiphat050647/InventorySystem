@@ -1,0 +1,36 @@
+﻿@page
+@model Inventory2.Pages.Rangsit.IndexRangsitModel
+@{
+}
+
+<a class="btn btn tn-primary btn-sm" href="/Rangsit/CreateRangsit">New item</a>
+<table class="table">
+    <thread>
+        <tr>
+            <th>Item ID</th>
+            <th>Item</th>
+            <th>Store ID</th>
+            <th>Supplier</th>
+            <th>Amount</th>
+            <th>Created</th>
+            <th>Action</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (var item in Model.listStocks)
+        {
+            <tr>
+                <td>@item.itemid</td>
+                <td>@item.item</td>
+                <td>@item.storeid</td>
+                <td>@item.supplier</td>
+                <td>@item.amount</td>
+                <td>@item.create_at</td>
+                <td>
+                    <a class=" btn btn-primary btn-sm" href="/Rangsit/EditRangsit?itemid=@item.itemid">Edit</a>
+                    <a class=" btn btn-danger btn-sm" href="/Rangsit/DeleteRangsit?itemid=@item.itemid">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
