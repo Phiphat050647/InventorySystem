@@ -1,0 +1,25 @@
+﻿@page
+@using Microsoft.Data.SqlClient;
+@{
+    try
+    {
+        String itemid = Request.Query["itemid"];
+        String conectionString = "Server=tcp:inventory191321.database.windows.net,1433;Initial Catalog=inventorysystem;Persist Security Info=False;User ID=Phiphat.deep;Password=0803340674Za;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        using (SqlConnection connection = new SqlConnection(conectionString))
+        {
+            connection.Open();
+            String sql = "DELETE FROM stocks WHERE itemid=@itemid";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@itemid", itemid);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+
+    }
+    Response.Redirect("/Siam/IndexSiam");
+}

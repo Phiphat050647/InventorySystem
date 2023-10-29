@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Siam\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
